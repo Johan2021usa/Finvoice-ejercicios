@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Punto 1:</h3>
+    <p>Abrir consola</p>
+    <script>
+        /**
+         * Nombre: Jairo Johan Lasso Chaucanes
+         * Email: lassojairo@gmail.com
+        */
+
+        // PUNTO 1.
+
+        console.log("Punto 1, ejercicio JavaScript y HTML")
+        for(let i=100; i<150;i++){
+           /**
+            * Esta sentencia if es usada para condicionar los numeros que son mayores a 100, menores a 150 y que son impares, el operador modulo nos permite comprobar si un valor es par o impar,
+            * si a un numero se le calcula el modulo de 2 y el resultado es 1: es impar; si el resultado es 0 es par.
+            * en este caso se imprimen todos los numeros que cumplen la condicion a traves de consola.
+           */
+            if(i>100 && i<150 && i % 2 ===1){
+                console.log(i);
+            }
+        }
+    </script>
+
+    <h3>Punto 2:</h3>
+    <!-- Inputs de entrada-->
+    <form class="form-inputs">
+        <input id="val-1" type="number" step="1" placeholder="Valor 1";>
+        <input id="val-2" type="number" step="1" placeholder="Valor 2";>
+        <button id="button-1" type="submit">Calcular</button>
+    </form>
+    <br>
+
+    <!--Salida de resultados-->
+    <div>
+        <label>Suma:</label>
+        <input id="salida-suma" value="0">
+    </div>
+    <div>
+        <label>Resta:</label>
+        <input id="salida-resta" value="0">    
+    </div>
+    <div>
+        <label>Multiplicacion:</label>
+        <input id="salida-multiplicacion" value="0">
+    </div>
+    <div>
+        <label>Division:</label>
+        <input id="salida-division" value="0">
+    </div>
+
+
+    <script>
+        // Funciones punto 2
+        function calculadora(valores){
+            /** La presente funcion recibe un array que contiene los dos valores que son usados para llevar a cabo
+             * las operaciones suma, resta, multiplicacion, division. Asi mismo, esta retorna un Array que contiene,
+             * el resultado de todas las operaciones
+            */
+            let suma = valores[0] + valores[1];
+            let resta = valores[0] - valores[1];
+            let Multiplicacion = valores[0] * valores[1];
+            let division = valores[0] / valores[1];
+            let operaciones = [suma, resta, Multiplicacion, division];
+            return operaciones;
+        }
+
+        function mostrarResultados(operaciones){
+            /**
+             * La presente funcion se encarga de mostrar los resultados de las operaciones en pantalla,
+             * para ello se hace uso del metoco query selector a fin de modificar el DOM.
+            */
+            let suma = document.querySelector('#salida-suma');
+            let resta = document.querySelector('#salida-resta');
+            let multiplicacion = document.querySelector('#salida-multiplicacion');
+            let division = document.querySelector('#salida-division');
+            // Mostrando resultados a traves de los inputs.
+            suma.value = operaciones[0];
+            resta.value = operaciones[1];
+            multiplicacion.value = operaciones[2];
+            division.value = operaciones[3];
+        }
+
+        document.querySelector('.form-inputs').addEventListener('submit',
+            function(eventoObtenido){
+                /** Este segmento del codigo esta haciendo uso del DOM o document object model,
+                 * en este caso estamos capturando un evento submit a partir de un boton creado en el documento HTML,
+                 * posterior a ello, se seleccionan los posibles valores dispuestos en los formularios haciendo uso del metodo,
+                 * querySelector, asi mismo, los valores obtenidos son parseados a fin de convertirlos en datos numericos de tipo entero,
+                 * luego dichos valores son enviados a la funcion calculadora la cual ejecuta las operaciones,
+                 * y retorna los resultados, despues dichos resultados son enviados a una funcion,
+                 *  que se encarga de mostrar los valores en el navegador a traves de inputs.
+                */
+                let valor1 = document.querySelector('#val-1').value;
+                let valor2 = document.querySelector('#val-2').value;
+                let valores = [parseInt(valor1), parseInt(valor2)];
+                let operaciones = calculadora(valores);
+                mostrarResultados(operaciones);
+                eventoObtenido.preventDefault();
+            }
+        );
+    </script>
+
+    <h3>Punto 3</h3>
+    <p>Ver codigo</p>
+    <script>
+        /**
+         * 3. ¿Qué significa HTML, y cuál es su estructura básica?
+         * HTML significa Hypertext Markup language, es un lenaguaje que funciona a traves de etiquetas,
+         * las cuales nos permiten crear la estructura de una pagina web que sera visualizada en el navegador,
+         * en ese orden de ideas, la estructura de un documento HTML en version HTML5 consiste en:
+         * a. se define el tipo de version de HTML con la etiqueta <!DOCTYPE html> en la primera linea
+         * b. Se habre y se cierra una etiqueta HTML en la cual se pondra todo el contenido <html></html>
+         * c. El contenido del documento HTML se compone de un head y un body:
+         * d. La etiqueta Head, en su estructura base contiene la etiqueta <title></title>, esta define el titulo de la pestaña
+         * e. tambien, contiene la etiqueta <meta> la cual define el tipo de condificacion de caracteres.
+         * f. Por otra parte, la etiqueta Body, contiene todo el contenido que se visualizara en la pantalla...
+        */
+    </script>
+
+<h3>Punto 4</h3>
+<p>Abrir consola</p>
+<script>
+    /**
+     * 4. A partir del siguiente listado filtre los vehículos que tengan una capacidad mayor a 10 y sean de color azul.
+    */
+    console.log("Punto 4, ejercicio JavaScript y HTML");
+    let vehiculo = [{"color": "rojo","marca": "bmw","capacidad": 11},
+                    {"color": "azul","marca": "fiat","capacidad": 2},
+                    {"color": "negro","marca": "hyundai","capacidad": 6},
+                    {"color": "amarillo","marca": "jeep","capacidad": 15},
+                    {"color": "azul","marca": "citroen","capacidad": 20},
+                    {"color": "azul","marca": "renault","capacidad": 12},
+                    {"color": "rojo","marca": "ford","capacidad": 4},
+                    {"color": "gris","marca": "toyota","capacidad": 8}];
+
+        /**
+         * Aqui se usa un loop for of, el cual permite iterar un objeto, para el caso es un array de objetos
+         * que se componen de tres index: color, marca y capacidad
+         * */ 
+        for(let x of vehiculo){
+            /**
+             * Con el uso de un condicional if se puede filtar el array de objetos dependiendo de los requerimientos,
+             * para el caso: que la capacidad sea mayor a 10 y que el color sea azul
+            */
+            if(x.capacidad >10 && x.color==="azul"){
+                /** Final mente se imprime los arrays que complen la condicion en consola, muchas gracias por la prueba, la disfrute mucho*/
+                console.log(x);
+            }
+        }
+
+</script>
+</body>
+</html>
